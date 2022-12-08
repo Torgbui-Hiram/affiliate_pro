@@ -1,0 +1,31 @@
+{% extends 'authentication/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h1>User Signup</h1>
+<hr>
+{% if form.errors %}
+<div class="container">
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Sorry!! There was an error submittng your form. Please try again.</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+</div>
+{% endif %}
+<div class="shadow p-4 mb-5 bg-body rounded">
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{form.as_p}}
+
+        <center>
+            <button type="submit" class="btn btn-secondary">Submit</button>
+        </center>
+    </form>
+</div>
+<br><br>
+
+
+{% endblock %}
